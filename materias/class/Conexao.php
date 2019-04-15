@@ -21,7 +21,7 @@ abstract class Conexao{
         return $conectar;
     }
 
-    public function getDados($query, $parametros = ''){
+    public function getDados($query, $parametros = Null){
         $sql = $this->conectar()->prepare($query);
         $sql->execute($parametros);
 
@@ -29,7 +29,7 @@ abstract class Conexao{
         return $dados;
     }
 
-    public function postDados($query, $parametros = ''){
+    public function postDados($query, $parametros = Null){
         $sql = $this->conectar()->prepare($query);
         $sql->execute($parametros);
 
@@ -37,7 +37,7 @@ abstract class Conexao{
         return $dados;
     }
 
-    public function putDados($query, $parametros = ''){
+    public function putDados($query, $parametros = Null){
         $sql = $this->conectar()->prepare($query);
         $sql->execute($parametros);
 
@@ -45,7 +45,7 @@ abstract class Conexao{
         return $dados;
     }
 
-    public function deleteDados($sql, $parametros = ''){
+    public function deleteDados($sql, $parametros = Null){
         $sql = $this->conectar()->prepare($sql);
         $sql->execute($parametros);
 

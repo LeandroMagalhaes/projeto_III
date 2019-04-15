@@ -8,7 +8,7 @@
         case "prova":       include "paginas/provas.php"; break;
         case "questoes":    include "paginas/questoes.php"; break;
         case "usuario":     include "paginas/usuarios.php"; break;
-        default: break;
+        default:            include "paginas/home.php"; break;
     }
 
 ?>

@@ -69,11 +69,11 @@ echo
 
                 <div class='form-group'>
                     <label>Matérias</label>
-                    <input type='text' class='form-control' id='nomeMateria' placeholder='Materia'>                    
+                    <input type='text' class='form-control' id='nomeMateria' name='nomeMateria' placeholder='Materia'>                    
                 </div>
                 <div class='form-group'>
                     <label>Carga Horária</label>
-                    <input type='text' class='form-control' id='cargaHorariaMateria' placeholder='Carga Horária'>
+                    <input type='text' class='form-control' id='cargaHorariaMateria' name='cargaHorariaMateria' placeholder='Carga Horária'>
                 </div>                
                 <button type='submit' class='btn btn-primary'>Cadastrar</button>
                 <input type='button' class='btn btn-danger' value='Voltar'>

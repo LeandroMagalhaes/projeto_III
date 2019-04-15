@@ -3,7 +3,7 @@
 $acao = $_GET['acao'];
 
 if($acao == 'listar'){
-echo 
+echo
     "<div class='row'>
         <div class='col-lg-12'>
             <br>
@@ -53,11 +53,11 @@ echo
             <form action='' method='POST'>
                 <div class='form-group'>
                     <label>Curso</label>
-                    <input type='text' class='form-control' id='nomeCurso' placeholder='Curso'>                    
+                    <input type='text' class='form-control' id='nomeCurso' name='nomeCurso' placeholder='Curso'>                    
                 </div>
                 <div class='form-group'>
                     <label>Carga Horária</label>
-                    <input type='text' class='form-control' id='cargaHorariaCurso' placeholder='Carga Horária'>
+                    <input type='text' class='form-control' id='cargaHorariaCurso' name='cargaHorariaCurso' placeholder='Carga Horária'>
                 </div>                
                 <button type='submit' class='btn btn-primary'>Cadastrar</button>
                 <input type='button' class='btn btn-danger' value='Voltar'>
