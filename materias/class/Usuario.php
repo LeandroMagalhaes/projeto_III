@@ -2,13 +2,8 @@
 
 class Usuario{
 
-    private $codUsuario;
     private $nomeUsuario;
     private $senhaUsuario;
-
-    public function getCodUsuario(){
-        return $this->codUsuario;
-    }
 
     public function getNomeUsuario(){
         return $this->nomeUsuario;
@@ -16,10 +11,6 @@ class Usuario{
 
     public function getSenhaUsuario(){
         return $this->senhaUsuario;
-    }
-
-    public function setCodUsuario($codigo){
-        $this->codUsuario = $codigo;
     }
 
     public function setNomeUsuario($nome){

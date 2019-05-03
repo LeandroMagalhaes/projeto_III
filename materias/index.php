@@ -60,12 +60,12 @@
         </div>
     </nav>
 
-    <div class="container">
-        <?php require "class/Telas.php"; ?>
-    </div>
-
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
+    <div class="container">
+        <?php require "controle/telaControle.php"; ?>
+    </div>
   </body>
 </html>

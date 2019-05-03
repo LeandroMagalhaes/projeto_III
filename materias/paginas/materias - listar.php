@@ -75,7 +75,7 @@ echo
                     <label>Carga Horária</label>
                     <input type='text' class='form-control' id='cargaHorariaMateria' name='cargaHorariaMateria' placeholder='Carga Horária'>
                 </div>
-                <input type='button' class='btn btn-success' value='Incluir na Lista'>
+                <input type='button' class='btn btn-success' value='Incluir na Lista'>                
                 <button type='submit' class='btn btn-primary'>Cadastrar</button>
                 <input type='button' class='btn btn-danger' value='Voltar'>                
             </form>        

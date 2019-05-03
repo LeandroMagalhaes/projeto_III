@@ -2,13 +2,8 @@
 
 class Materia{
 
-    private $codMateria;
     private $nomeMateria;
     private $cargaHoraria;
-
-    public function getCodMateria(){
-        return $this->codMateria;
-    }
 
     public function getNomeMateria(){
         return $this->nomeMateria;
@@ -16,10 +11,6 @@ class Materia{
 
     public function getCargaHoraria(){
         return $this->cargaHoraria;
-    }
-
-    public function setCodMateria($codigo){
-        $this->codMateria = $codigo;
     }
 
     public function setNomeMateria($nome){

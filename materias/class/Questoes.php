@@ -2,15 +2,10 @@
 
 class Questoes{
 
-    private $codQuestoes;
     private $codCurso;
     private $codMateria;
     private $questao;
     private $nivel;
-
-    public function getCodQuestoes(){
-        return $this->codQuestoes;
-    }
 
     public function getCodCurso(){
         return $this->codCurso;
@@ -26,10 +21,6 @@ class Questoes{
 
     public function getNivel(){
         return $this->nivel;
-    }
-
-    public function setCodQuestoes($codigo){
-        $this->codQuestoes = $codigo;
     }
 
     public function setCodCurso($codigo){

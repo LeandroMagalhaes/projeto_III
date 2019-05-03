@@ -1,56 +1,53 @@
 <?php
 
-const DBSERVER = "localhost";
-const DBUSER = "root";
-const DBPASS = "";
-const DBNAME = "materias";
+class Conexao{
 
-abstract class Conexao{
-
+    private $host = "localhost";
+    private $usuario = "root";
+    private $senha = "";
+    private $banco = "materias";
     private $conexao;   
 
-    private function conectar(){
-        try{
-            $conectar = $this->conexao;
-            $conectar = new PDO("mysql:host=".DBSERVER.";dbname=".DBNAME.";", DBUSER, DBPASS);
-            $conectar->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    public function conectar(){
+        try{            
+            $this->conexao = new PDO("mysql:host=".$this->host.";dbname=".$this->banco, $this->usuario, $this->senha);
+            $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $erro){
             die("Erro na conexão ".$erro->getMessage());
         }
-        return $conectar;
+        return $this->conexao;
     }
 
-    public function getDados($query, $parametros = Null){
+    public function getDados($query){
         $sql = $this->conectar()->prepare($query);
-        $sql->execute($parametros);
+        $sql->execute();
 
-        $dados = $sql->fetchAll(PDO::FETCH_OBJ);
-        return $dados;
+        return $sql->fetchAll(PDO::FETCH_OBJ);
+        $this->conexao = null;
     }
 
-    public function postDados($query, $parametros = Null){
+    public function postDados($query){
         $sql = $this->conectar()->prepare($query);
-        $sql->execute($parametros);
-
-        $dados = $sql->lastInsertId();
-        return $dados;
+        $sql->execute();
+                
+        $this->conexao = null;
     }
 
-    public function putDados($query, $parametros = Null){
+    public function putDados($query){
         $sql = $this->conectar()->prepare($query);
-        $sql->execute($parametros);
-
-        $dados = $sql->rowCount();
-        return $dados;
+        $sql->execute();
+        
+        return $sql->rowCount();
+        $this->conexao = null;
     }
 
-    public function deleteDados($sql, $parametros = Null){
-        $sql = $this->conectar()->prepare($sql);
-        $sql->execute($parametros);
-
-        $dados = $sql->rowCount();
-        return $dados;
+    public function deleteDados($query){
+        $sql = $this->conectar()->prepare($query);
+        $sql->execute();
+        
+        return $sql->rowCount();
+        $this->conexao = null;
     }
 }
 
