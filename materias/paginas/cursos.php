@@ -1,12 +1,12 @@
 <?php
 
-$acao = $_GET['acao'];
+    $acao = $_GET['acao'];
 
-if($acao == 'listar'){
-    include "cursos - listar.php";   
-}
-else{
-    include "cursos - criar.php";
-}
+    if($acao == 'listar'){
+        include "cursos - listar.php";   
+    }
+    else{
+        include "cursos - criar.php";
+    }
 
 ?>
