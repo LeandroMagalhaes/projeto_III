@@ -39,8 +39,10 @@
 
         @$cod_curso = $_GET['cod_curso'];
 
-        $sql = "UPDATE curso SET nome_curso = '{$nomeCurso}', carga_horaria = '{$cargaHorariaCurso}' WHERE cod_curso = {$cod_curso}";
-        print_r($sql);
+        $curso = new Curso;
+        $curso->novoCurso($nomeCurso, $cargaHorariaCurso);
+
+        $sql = "UPDATE curso SET nome_curso = '{$curso->getNome()}', carga_horaria = '{$curso->getCargaHoraria()}' WHERE cod_curso = {$cod_curso}";      
 
         $editar = new Conexao;
         $editar->putDados($sql);        
@@ -54,6 +56,6 @@
         $consultar = new Conexao;
         $resultado = $consultar->getDados($consulta);
         echo @json_encode($resultado);
-    }
+    }  
 
 ?>

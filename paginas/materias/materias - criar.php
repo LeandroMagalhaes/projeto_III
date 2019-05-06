@@ -8,9 +8,7 @@
 
             <div class='form-group'>
                 <label>Curso</label>
-                <select class='form-control'>
-                    <option>Selecione</option>
-                </select>
+                <select class='form-control' id='curso'></select>
             </div>
 
             <div class='form-group'>
@@ -27,3 +25,25 @@
         </form>        
     </div>   
 </div>
+
+<script>
+
+    //Carrega a função
+    $(document).ready(function() {
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                resultado = JSON.parse(this.responseText);                
+                formulario += "<option>Selecione</option>";
+                resultado.forEach(x => {
+                    formulario += "<option value="+ x.cod_curso +">"+ x.nome_curso +"</option>";
+                });                
+                document.getElementById('curso').innerHTML = formulario;
+            }
+        };
+        xhttp.open("GET", "controle/cursoControle.php?acao=listar", true);
+        xhttp.send();
+    });
+
+</script>

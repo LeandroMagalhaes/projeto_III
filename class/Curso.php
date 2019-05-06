@@ -27,12 +27,8 @@ class Curso{
     }
 
     public function novoCurso($nome, $cargaHoraria){
-        $this->setCargaHoraria($cargaHoraria);
-        $this->setNome($nome);
-    }
-
-    public function getCurso(){
-        return $this->Curso;
+        $this->cargaHoraria = $cargaHoraria;
+        $this->nome = $nome;
     }
 }
 

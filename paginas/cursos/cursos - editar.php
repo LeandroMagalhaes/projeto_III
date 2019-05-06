@@ -11,6 +11,7 @@
         </form>        
     </div>   
 </div>
+
 <script>
     //Carrega a função
     $(document).ready(function() {
@@ -48,7 +49,5 @@
             });
         }
     }
-
-
-
+    
 </script>
