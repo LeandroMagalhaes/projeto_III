@@ -7,23 +7,24 @@
         <form  method='POST' id="formulario">
             <div class='form-group'>
                 <label>Curso</label>
-                <input type='text' class='form-control' id='nomeCurso' name='nomeCurso' placeholder='Curso'>                    
+                <input type='text' class='form-control' id='nome' name='nome' placeholder='Curso'>                    
             </div>
             <div class='form-group'>
                 <label>Carga Horária</label>
-                <input type='number' class='form-control' id='cargaHorariaCurso' name='cargaHorariaCurso' placeholder='Carga Horária'>
+                <input type='number' class='form-control' id='cargaHoraria' name='cargaHoraria' placeholder='Carga Horária'>
             </div>                
             <input type='button' class='btn btn-primary' value="Cadastrar" id="cadastrar">
             <input type='button' class='btn btn-danger' value='Voltar'>
         </form>        
     </div>   
 </div>
+
 <script>
     //Carrega a função
     $(document).ready(function() {
         //Se o botão for acionado
         $('#cadastrar').click(function() {
-            var curso = $('#nomeCurso').val();
+            var curso = $('#nome').val();
             
             if(curso == null || curso == 0) {
                 alert("Preencha o Curso");
@@ -32,9 +33,7 @@
             else{
                 var dados = $('#formulario').serialize();
                 //Ajax
-                $.post(
-                    'controle/cursoControle.php?acao=cadastrar',
-                    dados,
+                $.post('controle/cursoControle.php?acao=cadastrar',dados,
                     function(data, status){
                         alert("Cadastrado com Sucesso!");
                         //Limpando os campos do formulário

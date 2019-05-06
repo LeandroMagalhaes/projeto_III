@@ -2,19 +2,24 @@
 
 class Materia{
 
-    private $nomeMateria;
+    private $id;
+    private $nome;
     private $cargaHoraria;
 
-    public function getNomeMateria(){
-        return $this->nomeMateria;
+    public function getId(){
+        return $this->id;
+    }
+    
+    public function getNome(){
+        return $this->nome;
     }
 
     public function getCargaHoraria(){
         return $this->cargaHoraria;
     }
 
-    public function setNomeMateria($nome){
-        $this->nomeMateria = $nome;
+    public function setNome($nome){
+        $this->nome = $nome;
     }
 
     public function setCargaHoraria($cargaHoraria){

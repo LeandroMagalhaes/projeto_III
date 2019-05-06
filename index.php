@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
 
     <title>Projeto Materias</title>
   </head>
@@ -18,7 +19,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php?pagina=home">Inicio <span class="sr-only">(current)</span></a>
-                </li>
+                </li>                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Cursos
@@ -39,12 +40,11 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Provas
+                    Alunos
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="index.php?pagina=questoes&acao=cadastro">Cadastrar Questões</a>
-                    <a class="dropdown-item" href="index.php?pagina=questoes&acao=listar">Listar Questões</a>
-                    <a class="dropdown-item" href="index.php?pagina=prova&acao=gerar">Gerar Prova</a>
+                    <a class="dropdown-item" href="index.php?pagina=alunos&acao=cadastro">Cadastrar</a>
+                    <a class="dropdown-item" href="index.php?pagina=alunos&acao=listar">Listar</a>
                     </div>
                 </li>                
                 <li class="nav-item dropdown">
@@ -53,7 +53,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="index.php?pagina=usuario&acao=cadastro">Cadastrar Usuário</a>
-                    <a class="dropdown-item" href="index.php?pagina=usuario&acao=listar">Listar Usuário</a>                    
+                    <a class="dropdown-item" href="index.php?pagina=usuario&acao=listar">Listar Usuário</a>
+                    <a class="dropdown-item" href="index.php?pagina=grade&acao=listar">Gerar Grade</a>                    
                     </div>
                 </li>                
             </ul>

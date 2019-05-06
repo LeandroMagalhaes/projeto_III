@@ -5,8 +5,11 @@
     if($acao == 'listar'){
         include "cursos - listar.php";   
     }
-    else{
+    else if($acao == 'cadastro'){
         include "cursos - criar.php";
+    }
+    else{
+        include "cursos - editar.php";
     }
 
 ?>

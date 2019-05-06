@@ -5,7 +5,7 @@ class Conexao{
     private $host = "localhost";
     private $usuario = "root";
     private $senha = "";
-    private $banco = "materias";
+    private $banco = "projeto";
     private $conexao;   
 
     public function conectar(){
@@ -38,7 +38,7 @@ class Conexao{
         $sql = $this->conectar()->prepare($query);
         $sql->execute();
         
-        return $sql->rowCount();
+        //return $sql->rowCount();
         $this->conexao = null;
     }
 
@@ -46,7 +46,7 @@ class Conexao{
         $sql = $this->conectar()->prepare($query);
         $sql->execute();
         
-        return $sql->rowCount();
+        //return $sql->rowCount();
         $this->conexao = null;
     }
 }
