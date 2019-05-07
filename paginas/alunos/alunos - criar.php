@@ -69,7 +69,6 @@
         xhttp.send();
     });
 
-
     $(document).ready(function() {
         $('#cadastrar').click(function() {
             var curso = $('#nome').val();

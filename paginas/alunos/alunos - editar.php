@@ -2,11 +2,48 @@
 <div class='row'>
     <div class='col-lg-12'>
         <br>
-        <h5><label>Cadastro de Alunos</label></h5>
+        <h5><label>Alterar Aluno</label></h5>
         <br>
         <form  method='POST' id="formulario">
-            <div id='editar'></div>
-            <input type='button' class='btn btn-success' value='Editar' onclick='editarCurso()'>
+            <input type='hidden' class='form-control' id='id' name='id'>
+            <div class='form-group'>
+                <label>Nome</label>
+                <input type='text' class='form-control' id='nome' name='nome'>
+            </div>
+
+            <div class='form-group'>
+                <label>Data de Nascimento</label>
+                <input type='date' class='form-control' id='dataNascimento' name='dataNascimento'>
+            </div>
+
+            <div class='form-group'>
+                <label>Sexo</label>
+                <div class='form-check'>
+                    <input class='form-check-input' type='radio' name='sexo' id='sexo' checked>
+                    <label class='form-check-label'>Masculino</label>
+                </div>
+
+                <div class='form-check'>
+                    <input class='form-check-input' type='radio' name='sexo' id='sexo'>
+                    <label class='form-check-label'>Feminino</label>
+                </div>
+            </div>
+
+            <div class='form-group'>
+                <label>Data de Matricula</label>
+                <input type='date' class='form-control' id='dataMatricula' name='dataMatricula'>
+            </div>
+
+            <div class='form-group'>
+                <label>Registro</label>
+                <input type='number' class='form-control' id='registro' name='registro'>
+            </div>
+
+            <div class='form-group'>
+                <label>Curso</label>
+                <select class='form-control' id='curso' name='curso'></select>
+            </div>            
+            <input type='button' class='btn btn-success' value='Editar' onclick='editarAluno()'>
             <input type='button' class='btn btn-danger' value='Voltar'>
         </form>        
     </div>   
@@ -22,9 +59,13 @@
             if (this.readyState == 4 && this.status == 200) {
                 resultado = JSON.parse(this.responseText);                
                 resultado.forEach(x => {
-                    formulario = "<input type='hidden' class='form-control' id='id' name='id' value='"+ x.cod_aluno +"'><div class='form-group'><label>Nome</label><input type='text' class='form-control' id='nome' name='nome' value='"+ x.nome_aluno +"'></div><div class='form-group'><label>Data de Nascimento</label><input type='date' class='form-control' id='dataNascimento' name='dataNascimento' value='"+ x.data_nascimento +"'></div><div class='form-group'><label>Sexo</label><div class='form-check'><input class='form-check-input' type='radio' name='sexo' id='sexo' value='"+ x.sexo +"' checked><label class='form-check-label'>Masculino</label></div><div class='form-check'><input class='form-check-input' type='radio' name='sexo' id='sexo' value='"+ x.sexo +"'><label class='form-check-label'>Feminino</label></div></div><div class='form-group'><label>Data de Matricula</label><input type='date' class='form-control' id='dataMatricula' name='dataMatricula' value='"+ x.data_matricula +"'></div><div class='form-group'><label>Registro</label><input type='number' class='form-control' id='registro' name='registro' value='"+ x.registro +"'></div><div class='form-group'><label>Curso</label><select class='form-control' id='curso' name='curso'></select></div>";
-                });                
-                document.getElementById('editar').innerHTML = formulario;
+                    document.getElementById('id').value = x.cod_aluno;
+                    document.getElementById('nome').value = x.nome_aluno;
+                    document.getElementById('dataNascimento').value = x.data_nascimento;
+                    document.getElementById('sexo').value = x.sexo;
+                    document.getElementById('dataMatricula').value = x.data_matricula;
+                    document.getElementById('registro').value = x.registro;
+                });
             }
         };
         xhttp.open("GET", "controle/alunoControle.php?acao=buscar&cod_aluno="+id[1], true);
