@@ -3,8 +3,8 @@
     require "../class/Conexao.php";
     require "../class/Curso.php";
 
-    @$nomeCurso = $_POST['nome'];
-    @$cargaHorariaCurso = $_POST['cargaHoraria'];
+    @$nome = $_POST['nome'];
+    @$cargaHoraria = $_POST['cargaHoraria'];
     @$acao = $_GET['acao'];
 
     if($acao == 'listar'){  
@@ -19,7 +19,7 @@
     else if ($acao == 'cadastrar'){
 
         $curso = new Curso;
-        $curso->novoCurso($nomeCurso, $cargaHorariaCurso);
+        $curso->novoCurso($nome, $cargaHoraria);
 
         $sql = "INSERT INTO curso (nome_curso, carga_horaria) VALUES ('{$curso->getNome()}', '{$curso->getCargaHoraria()}')";
 
@@ -40,7 +40,7 @@
         @$cod_curso = $_GET['cod_curso'];
 
         $curso = new Curso;
-        $curso->novoCurso($nomeCurso, $cargaHorariaCurso);
+        $curso->novoCurso($nome, $cargaHoraria);
 
         $sql = "UPDATE curso SET nome_curso = '{$curso->getNome()}', carga_horaria = '{$curso->getCargaHoraria()}' WHERE cod_curso = {$cod_curso}";      
 

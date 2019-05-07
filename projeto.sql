@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 28-Maio-2018 às 16:16
--- Versão do servidor: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: 07-Maio-2019 às 20:24
+-- Versão do servidor: 10.1.37-MariaDB
+-- versão do PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `materias1.1`
+-- Database: `projeto`
 --
 
 -- --------------------------------------------------------
@@ -35,7 +35,7 @@ CREATE TABLE `aluno` (
   `data_nascimento` varchar(10) DEFAULT NULL,
   `registro` varchar(10) NOT NULL,
   `data_matricula` varchar(10) DEFAULT NULL,
-  `cod_curso` int(11) DEFAULT NULL  
+  `cod_curso` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -53,10 +53,10 @@ CREATE TABLE `curso` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cursomateria`
+-- Estrutura da tabela `grade`
 --
 
-CREATE TABLE `cursomateria` (
+CREATE TABLE `grade` (
   `cod_materia` int(11) DEFAULT NULL,
   `cod_curso` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -93,8 +93,9 @@ CREATE TABLE `usuario` (
 -- Indexes for table `aluno`
 --
 ALTER TABLE `aluno`
-  ADD PRIMARY KEY (`cod_aluno`); 
- 
+  ADD PRIMARY KEY (`cod_aluno`),
+  ADD KEY `aluno_ibfk_2` (`cod_curso`);
+
 --
 -- Indexes for table `curso`
 --
@@ -102,9 +103,9 @@ ALTER TABLE `curso`
   ADD PRIMARY KEY (`cod_curso`);
 
 --
--- Indexes for table `cursomateria`
+-- Indexes for table `grade`
 --
-ALTER TABLE `cursomateria`
+ALTER TABLE `grade`
   ADD KEY `cod_materia` (`cod_materia`),
   ADD KEY `cod_curso` (`cod_curso`);
 
@@ -146,7 +147,7 @@ ALTER TABLE `materia`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -155,15 +156,15 @@ ALTER TABLE `usuario`
 --
 -- Limitadores para a tabela `aluno`
 --
-ALTER TABLE `aluno`  
+ALTER TABLE `aluno`
   ADD CONSTRAINT `aluno_ibfk_2` FOREIGN KEY (`cod_curso`) REFERENCES `curso` (`cod_curso`);
 
 --
--- Limitadores para a tabela `cursomateria`
+-- Limitadores para a tabela `grade`
 --
-ALTER TABLE `cursomateria`
-  ADD CONSTRAINT `cursomateria_ibfk_1` FOREIGN KEY (`cod_materia`) REFERENCES `materia` (`cod_materia`),
-  ADD CONSTRAINT `cursomateria_ibfk_2` FOREIGN KEY (`cod_curso`) REFERENCES `curso` (`cod_curso`);
+ALTER TABLE `grade`
+  ADD CONSTRAINT `grade_ibfk_1` FOREIGN KEY (`cod_materia`) REFERENCES `materia` (`cod_materia`),
+  ADD CONSTRAINT `grade_ibfk_2` FOREIGN KEY (`cod_curso`) REFERENCES `curso` (`cod_curso`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

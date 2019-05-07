@@ -10,15 +10,22 @@
     $(document).ready(function getCursos(){
         var xhttp = new XMLHttpRequest();
         
-        xhttp.onreadystatechange = function() {
+        xhttp.onreadystatechange = function() {            
+            lista = '<tr><th>Nome</th><th>Registro</th><th>Curso</th><th>Ações</th></tr>';
+
             if (this.readyState == 4 && this.status == 200) {
                 resultado = JSON.parse(this.responseText);
-                lista = '<tr><th>Nome</th><th>Registro</th><th>Curso</th><th>Ações</th></tr>';
-                resultado.forEach(x => {
-                    lista += "<tr><td>"+ x.nome_aluno +"</td><td>"+ x.registro + "</td><td>"+ x.nome_curso + "</td><td><button onclick=\"excluirAluno("+ x.cod_aluno +")\" class='btn btn-danger btn-sm'><i class='fa fa-trash'></i></button> <button onclick=\"editarAluno("+ x.cod_aluno +")\" class='btn btn-success btn-sm'><i class='fa fa-edit'></i></button></td></tr>";
-                });                
-                document.getElementById('alunos').innerHTML = lista;
-            }
+                
+                if(resultado != null){
+                    resultado.forEach(x => {
+                        lista += "<tr><td>"+ x.nome_aluno +"</td><td>"+ x.registro + "</td><td>"+ x.nome_curso + "</td><td><button onclick=\"excluirAluno("+ x.cod_aluno +")\" class='btn btn-danger btn-sm'><i class='fa fa-trash'></i></button> <button onclick=\"editarAluno("+ x.cod_aluno +")\" class='btn btn-success btn-sm'><i class='fa fa-edit'></i></button></td></tr>";
+                    });                
+                    document.getElementById('alunos').innerHTML = lista;
+                }
+                else{
+                    lista += "<tr><td>Nenhum Registro Encontrado...</td></tr>";
+                }
+            }   
         };
         xhttp.open("GET", "controle/alunoControle.php?acao=listar", true);
         xhttp.send(); 

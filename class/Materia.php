@@ -25,6 +25,11 @@ class Materia{
     public function setCargaHoraria($cargaHoraria){
         $this->cargaHoraria = $cargaHoraria;
     }
+
+    public function novaMateria($nome, $cargaHoraria){
+        $this->nome = $nome;
+        $this->cargaHoraria = $cargaHoraria;
+    }
 }
 
 ?>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-
+    <script src="js/jquery.min.js"></script>
     <title>Projeto Materias</title>
   </head>
   <body>
@@ -18,15 +18,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php?pagina=home">Inicio <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php?pagina=home">Inicio</a>
                 </li>                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Cursos
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="index.php?pagina=cursos&acao=cadastro">Cadastrar</a>
-                    <a class="dropdown-item" href="index.php?pagina=cursos&acao=listar">Listar</a>
+                        <a class="dropdown-item" href="index.php?pagina=cursos&acao=cadastro">Cadastrar</a>
+                        <a class="dropdown-item" href="index.php?pagina=cursos&acao=listar">Listar</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -34,8 +34,8 @@
                     Materias
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="index.php?pagina=materias&acao=cadastro">Cadastrar</a>
-                    <a class="dropdown-item" href="index.php?pagina=materias&acao=listar">Listar</a>
+                        <a class="dropdown-item" href="index.php?pagina=materias&acao=cadastro">Cadastrar</a>
+                        <a class="dropdown-item" href="index.php?pagina=materias&acao=listar">Listar</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -43,30 +43,38 @@
                     Alunos
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="index.php?pagina=alunos&acao=cadastro">Cadastrar</a>
-                    <a class="dropdown-item" href="index.php?pagina=alunos&acao=listar">Listar</a>
+                        <a class="dropdown-item" href="index.php?pagina=alunos&acao=cadastro">Cadastrar</a>
+                        <a class="dropdown-item" href="index.php?pagina=alunos&acao=listar">Listar</a>
                     </div>
-                </li>                
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Grade
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="index.php?pagina=grade&acao=cadastro">Cadastrar</a>
+                        <a class="dropdown-item" href="index.php?pagina=grade&acao=listar">Listar</a>
+                    </div>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Administrativo
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="index.php?pagina=usuario&acao=cadastro">Cadastrar Usuário</a>
-                    <a class="dropdown-item" href="index.php?pagina=usuario&acao=listar">Listar Usuário</a>
-                    <a class="dropdown-item" href="index.php?pagina=grade&acao=listar">Gerar Grade</a>                    
+                        <a class="dropdown-item" href="index.php?pagina=usuario&acao=cadastro">Cadastrar Usuário</a>
+                        <a class="dropdown-item" href="index.php?pagina=usuario&acao=listar">Listar Usuário</a>
                     </div>
                 </li>                
             </ul>
         </div>
     </nav>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    
     <div class="container">
         <?php require "controle/telaControle.php"; ?>
     </div>
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
   </body>
 </html>

@@ -4,7 +4,7 @@
         <br>
         <h5><label>Cadastro de Usuário</label></h5>
         <br>
-        <form action='' method='POST'>
+        <form method='POST'>
             <div class='form-group'>
                 <label>Nome</label>
                 <input type='text' class='form-control' id='nomeUsuario' name='nomeUsuario' placeholder='Nome'>                    
