@@ -14,14 +14,17 @@
         var cursos = [];
         var html = "";
         var i = 0;
+        var p = 0;
         $.get("controle/gradeControle.php?acao=cursos", (data, status) => {
             var cursos = JSON.parse(data);
-            html = "<div class='card'><div class='card-header' id='1'><h2 class='mb-0'><button class='btn btn-link btn-sm' data-toggle='collapse' data-target='#collapse_1' aria-expanded='true'>"+cursos[i].nome_curso+"</button></h2></div><div id='collapse_1' class='collapse' aria-labelledby='1' data-parent='#grade'><div class='card-body' id='materias_1'></div></div></div>"            
+            html += "<div class='card'><div class='card-header' id='"+cursos[i].cod_curso+"'><h2 class='mb-0'><button class='btn btn-link btn-sm' data-toggle='collapse' data-target='#collapse_"+p+"' aria-expanded='true' aria-controls=''>"+cursos[i].nome_curso+"</button></h2></div><div id='collapse_"+p+"' class='collapse' aria-labelledby='"+cursos[i].cod_curso+"' data-parent='#grade'><div class='card-body'>";
             cursos.forEach((curso) => {
                 $.get("controle/gradeControle.php?acao=materia&cod_curso=" + curso.cod_curso, (data, status) => {
                     cursos[curso.cod_curso] = JSON.parse(data);
+                    html += ""+cursos[curso.cod_curso].nome_materia+"<br>";
                 });
             });
+            html += "</div></div></div>";
             console.log(html);
         });
 
