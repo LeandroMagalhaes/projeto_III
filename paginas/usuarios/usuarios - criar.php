@@ -14,7 +14,7 @@
                 <input type='password' class='form-control' id='senha' name='senha' placeholder='Senha'>
             </div>                
             <input type='button' class='btn btn-primary' value="Cadastrar" id="cadastrar">
-            <input type='button' class='btn btn-danger' value='Voltar' onclick="history.go(-1)">>
+            <input type='button' class='btn btn-danger' value='Voltar' onclick="history.go(-1)">
         </form>
     </div>   
 </div>

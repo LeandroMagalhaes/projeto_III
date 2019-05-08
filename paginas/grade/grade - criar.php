@@ -18,7 +18,7 @@
 
                     <input type='button' class='btn btn-success' value='Incluir' onclick="montarLista()">
                     <input type='button' class='btn btn-primary' value="Salvar" id="cadastrar">
-                    <input type='button' class='btn btn-danger' value='Voltar' onclick="history.go(-1)">>
+                    <input type='button' class='btn btn-danger' value='Voltar' onclick="history.go(-1)">
                 </div>
 
                 <div class="col-md-8" style='margin-top:20px;'>
@@ -101,15 +101,18 @@ $(document).ready(function() {
         if (materia == 0 || materia == "Selecione" || curso == 0 || curso == "Selecione") {
             alert("Preencha os Campos!");
             return false;
-        } else {
+        } 
+        else {
             var dados = $('#formulario').serialize();
+            console.log(dados);
             //Ajax
             $.post('controle/gradeControle.php?acao=cadastrar', dados,
-                function(data, status) {
+                function(data, status) {                    
                     alert("Cadastrado com Sucesso!");
-                    window.location.reload();
-            });
-        }
+                    $('#formulario')[0].reset();
+                    document.getElementById('linhas').innerHTML = null;
+            });            
+        }        
     });
 });
 </script>

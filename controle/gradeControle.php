@@ -17,8 +17,8 @@
 
     }
     else if ($acao == 'cadastrar'){
-    
-        for($i = 0; $i < count($idCurso); $i++){
+
+        for($i = 0; $i < count($idMateria); $i++){
             $grade = new Grade;
             $grade->novaGrade($idCurso[$i], $idMateria[$i]);
 
