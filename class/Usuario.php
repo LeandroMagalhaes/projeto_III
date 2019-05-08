@@ -25,6 +25,11 @@ class Usuario{
     public function setSenha($senha){
         $this->senha = $senha;
     }
+
+    public function novoUsuario($nome, $senha){
+        $this->nome = $nome;
+        $this->senha = $senha;
+    }
 }
 
 ?>

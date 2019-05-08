@@ -1,5 +1,5 @@
 <div class='row'>
-    <div class='col-lg-12'>
+    <div class='col-md-12'>
         <br>
         <h5><center><label>Montar Grade</label></center></h5>
         <br>
@@ -18,7 +18,7 @@
 
                     <input type='button' class='btn btn-success' value='Incluir' onclick="montarLista()">
                     <input type='button' class='btn btn-primary' value="Salvar" id="cadastrar">
-                    <input type='button' class='btn btn-danger' value='Voltar'>
+                    <input type='button' class='btn btn-danger' value='Voltar' onclick="history.go(-1)">>
                 </div>
 
                 <div class="col-md-8" style='margin-top:20px;'>

@@ -1,6 +1,6 @@
 
 <div class='row'>
-    <div class='col-lg-12'>
+    <div class='col-md-12'>
         <br>
         <h5><label>Cadastro de Aluno</label></h5>
         <br>
@@ -45,7 +45,7 @@
                 <select class='form-control' id='curso' name='curso'></select>
             </div>   
             <input type='button' class='btn btn-primary' value="Cadastrar" id="cadastrar">
-            <input type='button' class='btn btn-danger' value='Voltar'>
+            <input type='button' class='btn btn-danger' value='Voltar' onclick="history.go(-1)">>
         </form>        
     </div>   
 </div>

@@ -1,6 +1,6 @@
 
 <div class='row'>
-    <div class='col-lg-12'><br>
+    <div class='col-md-12'><br>
         <h5><label>Lista de Materias</label></h5><br>            
         <table class='table' id='materias'></table>
     </div>
