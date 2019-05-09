@@ -87,7 +87,7 @@ function montarLista() {
     } else {
         var linha = "<tr><td>" + curso + "<input type='hidden' name='idCurso[]' value='" + idCurso + "'></td><td>" +
         materia + "<input type='hidden' name='idMateria[]' value='" + idMateria +
-            "'></td><td><input type='button' class='btn btn-link' value='X' onclick=\"removerLinha(this.parentNode.parentNode.rowIndex)\"></td></tr>";
+            "'></td><td><button class='btn btn-sm' onclick=\"removerLinha(this.parentNode.parentNode.rowIndex)\"><i class='fa fa-trash-o' aria-hidden='true'></i></button></td></tr>";
         document.getElementById('linhas').innerHTML += linha;
     }
 }
