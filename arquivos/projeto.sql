@@ -141,8 +141,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `nome_usuario`, `senha_usuario`) VALUES
-(1, 'Leo', '111'),
-(2, 'Leo', '111');
+(1, 'Leo', '111');
 
 --
 -- Indexes for dumped tables
