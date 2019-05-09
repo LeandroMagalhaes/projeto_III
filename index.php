@@ -91,7 +91,9 @@
     </nav>    
 
     <div class="container">
+        <fieldset>
         <?php require "controle/telaControle.php"; ?>
+        </fieldset>
     </div>
 
     <script src="js/popper.min.js"></script>

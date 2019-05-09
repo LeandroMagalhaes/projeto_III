@@ -1,8 +1,8 @@
 
 <div class='row'>
     <div class='col-md-12'><br>
-        <h5><label>Lista de Alunos</label></h5><br>            
-        <table class='table'id='alunos'></table>
+        <h5><label>Lista de Alunos</label></h5><br>
+        <table class='table table-striped table-sm' id='alunos'></table>
     </div>
 </div>
 
@@ -18,7 +18,7 @@
                 
                 if(resultado != null){
                     resultado.forEach(x => {
-                        lista += "<tr><td>"+ x.nome_aluno +"</td><td>"+ x.registro + "</td><td>"+ x.nome_curso + "</td><td><button onclick=\"excluirAluno("+ x.cod_aluno +")\" class='btn btn-danger btn-sm'><i class='fa fa-trash'></i></button> <button onclick=\"editarAluno("+ x.cod_aluno +")\" class='btn btn-success btn-sm'><i class='fa fa-edit'></i></button></td></tr>";
+                        lista += "<tr><td>"+ x.nome_aluno +"</td><td>"+ x.registro + "</td><td>"+ x.nome_curso + "</td><td><button onclick=\"excluirAluno("+ x.cod_aluno +")\" class='btn btn-link btn-sm'><i class='fa fa-trash'></i></button> <button onclick=\"editarAluno("+ x.cod_aluno +")\" class='btn btn-link btn-sm'><i class='fa fa-edit'></i></button></td></tr>";
                     });                
                     document.getElementById('alunos').innerHTML = lista;
                 }

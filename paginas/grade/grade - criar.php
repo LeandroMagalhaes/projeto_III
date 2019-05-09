@@ -1,8 +1,6 @@
 <div class='row'>
-    <div class='col-md-12'>
-        <br>
-        <h5><center><label>Montar Grade</label></center></h5>
-        <br>
+    <div class='col-md-12'><br>
+        <h5><label>Montar Grade</label></h5><br>
         <form id='formulario' method='POST'>
             <div class="row">
                 <div class="col-md-4">
@@ -16,14 +14,14 @@
                         <select class='form-control' id='materia'></select>
                     </div>
 
-                    <input type='button' class='btn btn-success' value='Incluir' onclick="montarLista()">
-                    <input type='button' class='btn btn-primary' value="Salvar" id="cadastrar">
-                    <input type='button' class='btn btn-danger' value='Voltar' onclick="history.go(-1)">
+                    <input type='button' class='btn btn-sm btn-success' value='Incluir' onclick="montarLista()">
+                    <input type='button' class='btn btn-sm btn-primary' value="Salvar" id="cadastrar">
+                    <input type='button' class='btn btn-sm btn-danger' value='Voltar' onclick="history.go(-1)">
                 </div>
 
-                <div class="col-md-8" style='margin-top:20px;'>
+                <div class="col-md-8" style='margin-top:31px;'>
                     <div style='height: 500px; overflow: auto'>
-                        <table class='table' id='grade'>
+                        <table class='table table-striped table-sm' id='grade'>
                             <thead>
                                 <tr>
                                     <th style='width:40%;'>Curso</th>

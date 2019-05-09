@@ -28,7 +28,7 @@
                     <input type="password" class="form-control" id="senha" name="senha" >
                 </div>
 
-                <input type='button' class='btn btn-primary' value="Login" id="login">
+                <input type='button' class='btn btn-sm btn-primary' value="Login" id="login">
             </form><br>
             <label>Novo por aqui?<input type="button" class="btn btn-link"value='Cadastre-se...' onclick="cadastrarUsuario()"></label>
         </div>

@@ -15,8 +15,8 @@
                 <label>Carga Horária</label>
                 <input type='number' class='form-control' id='cargaHoraria' name='cargaHoraria'>
             </div>
-            <input type='button' class='btn btn-success' value='Editar' onclick='editarCurso()'>
-            <input type='button' class='btn btn-danger' value='Voltar' onclick="history.go(-1)">
+            <input type='button' class='btn btn-sm btn-success' value='Editar' onclick='editarCurso()'>
+            <input type='button' class='btn btn-sm btn-danger' value='Voltar' onclick="history.go(-1)">
         </form>        
     </div>   
 </div>

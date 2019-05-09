@@ -2,7 +2,7 @@
 <div class='row'>
     <div class='col-md-12'><br>
         <h5><label>Lista de Usuários</label></h5><br>            
-        <table class='table' id='usuarios'></table>
+        <table class='table table-striped table-sm' id='usuarios'></table>
     </div>
 </div>
 
@@ -18,7 +18,7 @@
 
                 if(resultado != null){
                     resultado.forEach(x => {
-                        lista += "<tr><td>"+ x.nome_usuario +"</td><td><button onclick=\"excluirUsuario("+ x.cod_usuario +")\" class='btn btn-danger btn-sm'><i class='fa fa-trash'></i></button> <button onclick=\"editarUsuario("+ x.cod_usuario +")\" class='btn btn-success btn-sm'><i class='fa fa-edit'></i></button></td></tr>";
+                        lista += "<tr><td>"+ x.nome_usuario +"</td><td><button onclick=\"excluirUsuario("+ x.cod_usuario +")\" class='btn btn-link btn-sm'><i class='fa fa-trash'></i></button> <button onclick=\"editarUsuario("+ x.cod_usuario +")\" class='btn btn-link btn-sm'><i class='fa fa-edit'></i></button></td></tr>";
                     });                
                     document.getElementById('usuarios').innerHTML = lista;
                 }

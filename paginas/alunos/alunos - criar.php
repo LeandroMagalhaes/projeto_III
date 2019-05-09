@@ -44,8 +44,8 @@
                 <label>Curso</label>
                 <select class='form-control' id='curso' name='curso'></select>
             </div>   
-            <input type='button' class='btn btn-primary' value="Cadastrar" id="cadastrar">
-            <input type='button' class='btn btn-danger' value='Voltar' onclick="history.go(-1)">
+            <input type='button' class='btn btn-sm btn-primary' value="Cadastrar" id="cadastrar">
+            <input type='button' class='btn btn-sm btn-danger' value='Voltar' onclick="history.go(-1)">
         </form>        
     </div>   
 </div>
