@@ -11,7 +11,7 @@
         
         @$cod_curso = $_GET['cod_curso'];
 
-        $sql = "SELECT DISTINCT ma.cod_materia, ma.nome_materia FROM materia AS ma INNER JOIN grade AS gr ON gr.cod_materia = ma.cod_materia WHERE gr.cod_curso IN (" . $cod_curso . ")";
+        $sql = "SELECT  ma.cod_materia, ma.nome_materia FROM materia AS ma INNER JOIN grade AS gr ON gr.cod_materia = ma.cod_materia WHERE gr.cod_curso IN (" . $cod_curso . ")";
 
         $consultar = new Conexao;
         $resultado = $consultar->getDados($sql);
