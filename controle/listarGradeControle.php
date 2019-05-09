@@ -13,15 +13,15 @@
     foreach($cursos as $chave => $valor){
 
         echo "<div class='card'>
-        <div class='card-header' id='".$cursos[$chave]->cod_curso."'><button class='btn btn-link' type='button' data-toggle='collapse' data-target='#collapse_".$cursos[$chave]->cod_curso."' aria-expanded='true' aria-controls=''>".$cursos[$chave]->nome_curso."</button></div><div id='collapse_".$cursos[$chave]->cod_curso."' class='collapse' aria-labelledby='".$cursos[$chave]->cod_curso."' data-parent='#grade'><div class='card-body'>";
+        <div class='card-header' id='".$cursos[$chave]->cod_curso."'><button class='btn btn-link' type='button' data-toggle='collapse' data-target='#collapse_".$cursos[$chave]->cod_curso."' aria-expanded='true' aria-controls=''>".$cursos[$chave]->nome_curso."</button><button style='float: right;' class='btn btn-link btn-sm' onclick=\"location.href='controle/gradeControle.php?acao=excluir&cod_curso=".$cursos[$chave]->cod_curso."'; \"><i class='fa fa-trash-o' aria-hidden='true'></i></button></div><div id='collapse_".$cursos[$chave]->cod_curso."' class='collapse' aria-labelledby='".$cursos[$chave]->cod_curso."' data-parent='#grade'><div class='card-body'><ul>";
         $id = $cursos[$chave]->cod_curso;
         
         $materias = getMateria($id);
 
         foreach($materias as $key => $value){
-            echo $materias[$key]->nome_materia."<br>";
+            echo "<li> ".$materias[$key]->nome_materia."</li>";
         }
-        echo "</div></div></div>";
+        echo "</ul></div></div></div>";
     }
 
 

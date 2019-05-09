@@ -31,13 +31,13 @@
     } 
     else if($acao == 'excluir'){
     
-        $cod_materia = $_GET['cod_materia'];
+        @$cod_curso = $_GET['cod_curso'];
 
-        $sql = "DELETE FROM grade WHERE cod_curso = '{$cod_curso}' AND cod_materia = {$cod_materia}";
+        $sql = "DELETE FROM grade WHERE cod_curso = '{$cod_curso}'";
 
         $excluir = new Conexao;
         $excluir->deleteDados($sql);
-
+        header('Location: ../index.php?pagina=grade&acao=listar');
     }   
     else{
 
