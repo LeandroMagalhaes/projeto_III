@@ -35,7 +35,6 @@
                 });
                 lista += "</div>";                
             }
-            
         };
         xhttp.open("GET", "controle/gradeControle.php?acao=materia&cod_curso=" + id, false);
         xhttp.send();
