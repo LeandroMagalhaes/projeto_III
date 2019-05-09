@@ -27,7 +27,7 @@
 
     function getMateria($IdCurso){
         
-        $materia = "SELECT  ma.cod_materia, ma.nome_materia FROM materia AS ma INNER JOIN grade AS gr ON gr.cod_materia = ma.cod_materia WHERE gr.cod_curso = '{$IdCurso}'";
+        $materia = "SELECT DISTINCT ma.cod_materia, ma.nome_materia FROM materia AS ma INNER JOIN grade AS gr ON gr.cod_materia = ma.cod_materia WHERE gr.cod_curso = '{$IdCurso}'";
 
         $consultar = new Conexao;
         $materias = $consultar->getDados($materia);

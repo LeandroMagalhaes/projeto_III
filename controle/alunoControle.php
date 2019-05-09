@@ -15,7 +15,7 @@
 
     if($acao == 'listar'){  
 
-        $sql = "SELECT * FROM aluno AS al INNER JOIN curso AS cr ON al.cod_curso = cr.cod_curso";
+        $sql = "SELECT DISTINCT * FROM aluno AS al INNER JOIN curso AS cr ON al.cod_curso = cr.cod_curso ORDER BY al.registro ASC";
 
         $consultar = new Conexao;
         $resultado = $consultar->getDados($sql);

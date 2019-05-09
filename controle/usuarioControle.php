@@ -9,7 +9,7 @@
 
     if($acao == 'listar'){  
 
-        $sql = "SELECT cod_usuario, nome_usuario FROM usuario";
+        $sql = "SELECT DISTINCT cod_usuario, nome_usuario FROM usuario";
 
         $consultar = new Conexao;
         $resultado = $consultar->getDados($sql);

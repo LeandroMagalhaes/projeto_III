@@ -6,7 +6,7 @@
 	$nome = @$_POST["nome"];
 	$senha = @$_POST["senha"];
 	
-	$sql = "SELECT nome_usuario FROM usuario WHERE nome_usuario = '{$nome}' AND senha_usuario = '{$senha}'";
+	$sql = "SELECT DISTINCT nome_usuario FROM usuario WHERE nome_usuario = '{$nome}' AND senha_usuario = '{$senha}'";
 
     $login = new Conexao;
     $resultado = $login->getDados($sql);

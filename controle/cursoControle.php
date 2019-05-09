@@ -9,7 +9,7 @@
 
     if($acao == 'listar'){  
 
-        $sql = "SELECT * FROM curso";
+        $sql = "SELECT DISTINCT * FROM curso";
 
         $consultar = new Conexao;
         $resultado = $consultar->getDados($sql);
