@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09-Maio-2019 às 23:00
+-- Generation Time: 11-Maio-2019 às 00:08
 -- Versão do servidor: 10.1.37-MariaDB
 -- versão do PHP: 7.2.12
 
@@ -56,17 +56,41 @@ INSERT INTO `aluno` (`cod_aluno`, `nome_aluno`, `sexo`, `data_nascimento`, `regi
 CREATE TABLE `curso` (
   `cod_curso` int(11) NOT NULL,
   `nome_curso` varchar(50) DEFAULT NULL,
-  `carga_horaria` int(11) DEFAULT NULL
+  `carga_horaria` int(11) DEFAULT NULL,
+  `qtd_periodo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `curso`
 --
 
-INSERT INTO `curso` (`cod_curso`, `nome_curso`, `carga_horaria`) VALUES
-(1, 'AdministraÃ§Ã£o', 2000),
-(2, 'Contabilidade', 2500),
-(3, 'Analise e Desenvolvimento de Sistemas', 2500);
+INSERT INTO `curso` (`cod_curso`, `nome_curso`, `carga_horaria`, `qtd_periodo`) VALUES
+(1, 'AdministraÃ§Ã£o', 2500, 2),
+(2, 'Direito', 3000, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `curso_periodo`
+--
+
+CREATE TABLE `curso_periodo` (
+  `cod_periodo` int(11) NOT NULL,
+  `num_periodo` int(11) NOT NULL,
+  `cod_curso` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `curso_periodo`
+--
+
+INSERT INTO `curso_periodo` (`cod_periodo`, `num_periodo`, `cod_curso`) VALUES
+(5, 1, 2),
+(6, 2, 2),
+(7, 3, 2),
+(8, 4, 2),
+(9, 1, 1),
+(10, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -84,20 +108,15 @@ CREATE TABLE `grade` (
 --
 
 INSERT INTO `grade` (`cod_materia`, `cod_curso`) VALUES
-(3, 2),
-(2, 2),
 (1, 1),
 (2, 1),
 (3, 1),
-(5, 1),
-(5, 1),
 (3, 2),
 (2, 2),
 (5, 2),
-(6, 3),
-(4, 3),
-(3, 3),
 (2, 3),
+(3, 3),
+(4, 3),
 (1, 3);
 
 -- --------------------------------------------------------
@@ -127,6 +146,18 @@ INSERT INTO `materia` (`cod_materia`, `nome_materia`, `carga_horaria`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `periodo_materia`
+--
+
+CREATE TABLE `periodo_materia` (
+  `num_periodo` int(11) NOT NULL,
+  `cod_curso` int(11) NOT NULL,
+  `cod_materia` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `usuario`
 --
 
@@ -141,7 +172,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `nome_usuario`, `senha_usuario`) VALUES
-(1, 'Leo', '111');
+(1, 'Leo', '111'),
+(2, 'Leo', '111');
 
 --
 -- Indexes for dumped tables
@@ -159,6 +191,12 @@ ALTER TABLE `aluno`
 --
 ALTER TABLE `curso`
   ADD PRIMARY KEY (`cod_curso`);
+
+--
+-- Indexes for table `curso_periodo`
+--
+ALTER TABLE `curso_periodo`
+  ADD PRIMARY KEY (`cod_periodo`);
 
 --
 -- Indexes for table `grade`
@@ -193,7 +231,13 @@ ALTER TABLE `aluno`
 -- AUTO_INCREMENT for table `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `cod_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cod_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `curso_periodo`
+--
+ALTER TABLE `curso_periodo`
+  MODIFY `cod_periodo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `materia`
