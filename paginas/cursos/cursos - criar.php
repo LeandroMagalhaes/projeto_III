@@ -12,7 +12,17 @@
             <div class='form-group'>
                 <label>Carga Horária</label>
                 <input type='number' class='form-control' id='cargaHoraria' name='cargaHoraria' placeholder='Carga Horária'>
-            </div>                
+            </div>
+            <div class='form-group'>
+                <label>Quantidade de Períodos</label>
+                <select class='form-control' id='qtd_periodo' name='qtd_periodo'>
+                    <option value=''>Selecione a Quantidade</option>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                </select>
+            </div>
             <input type='button' class='btn btn-sm btn-primary' value="Cadastrar" id="cadastrar">
             <input type='button' class='btn btn-sm btn-danger' value='Voltar' onclick="history.go(-1)">
         </form>        
@@ -25,9 +35,11 @@
         //Se o botão for acionado
         $('#cadastrar').click(function() {
             var curso = $('#nome').val();
+            var cargaHoraria = $('#cargaHoraria').val();
+            var periodo = $('#qtd_periodo').val();
             
-            if(curso == null || curso == 0) {
-                alert("Preencha o Curso");
+            if(curso == null || curso == 0 || periodo == 0 || periodo == null || cargaHoraria == 0 || cargaHoraria == null) {
+                alert("Preencha os Campos");
                 return false;
             }
             else{

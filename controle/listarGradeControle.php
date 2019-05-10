@@ -17,11 +17,13 @@
         $id = $cursos[$chave]->cod_curso;
         
         $materias = getMateria($id);
+        $qtdHoras = getSomaHoras($id);        
 
         foreach($materias as $key => $value){
             echo "<li><div><label> ".$materias[$key]->nome_materia."</label><label style='float: right; margin-right: 70px;'>Carga Horária: ".$materias[$key]->carga_horaria."</label></div></li>";
         }
-        echo "</ul><label style='margin-left: 20px;'>Total Horas: </label></div></div></div>";
+       
+        echo "</ul><label style='float:right; margin-right: 60px;'>Total Horas: ". $qtdHoras[0]->credito ." </label></div></div></div>";
     }
 
 
@@ -35,18 +37,15 @@
         return $materias;
     }
 
-    function getSomaHoras($IdCurso){
+    function getSomaHoras($cod_curso){
         
-        $soma = "SELECT SUM(carga_horaria) AS credito  FROM materia AS ma INNER JOIN grade AS gr ON gr.cod_materia = ma.cod_materia WHERE gr.cod_curso = '{$IdCurso}'";
+    $soma = "SELECT SUM(carga_horaria) AS credito  FROM materia AS ma INNER JOIN grade AS gr ON gr.cod_materia = ma.cod_materia WHERE gr.cod_curso = '{$cod_curso}'";
 
         $consultar = new Conexao;
         $resultado = $consultar->getDados($soma);
 
         return $resultado;
     }
-
-    $teste = getSomaHoras('1');
-    print_r($teste);
 
     echo "</pre>";
 

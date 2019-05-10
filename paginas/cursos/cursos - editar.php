@@ -15,6 +15,16 @@
                 <label>Carga Horária</label>
                 <input type='number' class='form-control' id='cargaHoraria' name='cargaHoraria'>
             </div>
+            <div class='form-group'>
+                <label>Quantidade de Períodos</label>
+                <select class='form-control' id='qtd_periodo' name='qtd_periodo'>
+                    <option value=''>Selecione a Quantidade</option>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                </select>
+            </div>
             <input type='button' class='btn btn-sm btn-success' value='Editar' onclick='editarCurso()'>
             <input type='button' class='btn btn-sm btn-danger' value='Voltar' onclick="history.go(-1)">
         </form>        
