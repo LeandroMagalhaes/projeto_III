@@ -88,7 +88,7 @@
         </div>
         <div style="float: right; margin-right: 10px;">
             <a  href="paginas/login/sair.php">
-                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <i class="fa fa-sign-out" aria-hidden="true" title="Sair"></i>
             </a>
         </div>
     </nav>    
