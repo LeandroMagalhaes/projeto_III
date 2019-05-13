@@ -4,7 +4,8 @@
     require "../class/Grade.php";
 
     @$idCurso = $_POST['idCurso'];
-    @$idMateria = $_POST['idMateria'];    
+    @$idMateria = $_POST['idMateria'];
+    @$idPeriodo = $_POST['idPeriodo'];
     @$acao = $_GET['acao'];
     
     if($acao == 'listar'){  
@@ -19,13 +20,14 @@
     else if ($acao == 'cadastrar'){
 
         for($i = 0; $i < count($idMateria); $i++){
-            $grade = new Grade;
-            $grade->novaGrade($idCurso[$i], $idMateria[$i]);
 
-            $sql = "INSERT INTO grade (cod_materia, cod_curso) VALUES ('{$grade->getIdMateria()}', '{$grade->getIdCurso()}')";
+            $grade = new Grade;
+            $grade->novaGrade($idCurso[$i], $idMateria[$i], $idPeriodo[$i]);
+
+            $sql = "INSERT INTO grade (cod_materia, cod_curso, num_periodo) VALUES ('{$grade->getIdMateria()}', '{$grade->getIdCurso()}', '{$grade->getNumPeriodo()}')";
 
             $salvar = new Conexao;
-            $salvar->postDados($sql);            
+            $salvar->postDados($sql);
         }
 
     } 
@@ -39,11 +41,11 @@
         $excluir->deleteDados($sql);
         header('Location: ../index.php?pagina=grade&acao=listar');
     }   
-    else{
+    else if($acao == 'consultar'){
 
         @$cod_curso = $_GET['cod_curso'];
 
-        $consulta = "SELECT * FROM materia WHERE cod_curso = '{$cod_curso}'";
+        $consulta = "SELECT cod_curso, num_periodo FROM periodo WHERE cod_curso = '{$cod_curso}'";
 
         $consultar = new Conexao;
         $resultado = $consultar->getDados($consulta);

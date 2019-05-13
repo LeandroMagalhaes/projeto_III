@@ -33,7 +33,7 @@
 
         for($i = 1; $i <= $qtd_periodo; $i++){
 
-            $periodos = "INSERT INTO curso_periodo (num_periodo, cod_curso) VALUES ('{$i}', '{$resultado[0]->cod_curso}')";
+            $periodos = "INSERT INTO periodo (num_periodo, cod_curso) VALUES ('{$i}', '{$resultado[0]->cod_curso}')";
             
             $salvar = new Conexao;
             $salvar->postDados($periodos);
@@ -49,7 +49,7 @@
         $excluir = new Conexao;
         $excluir->deleteDados($sql);
 
-        $periodo = "DELETE FROM curso_periodo WHERE cod_curso = {$cod_curso}";
+        $periodo = "DELETE FROM periodo WHERE cod_curso = {$cod_curso}";
 
         $excluir->deleteDados($periodo);
     }
@@ -65,13 +65,13 @@
         $editar = new Conexao;
         $editar->putDados($sql);
 
-        $periodo = "DELETE FROM curso_periodo WHERE cod_curso = '{$cod_curso}'";
+        $periodo = "DELETE FROM periodo WHERE cod_curso = '{$cod_curso}'";
 
         $editar->deleteDados($periodo);
 
         for($i = 1; $i <= $qtd_periodo; $i++){
 
-            $periodos = "INSERT INTO curso_periodo (num_periodo, cod_curso) VALUES ('{$i}', '{$cod_curso}')";
+            $periodos = "INSERT INTO periodo (num_periodo, cod_curso) VALUES ('{$i}', '{$cod_curso}')";
             
             $salvar = new Conexao;
             $salvar->postDados($periodos);

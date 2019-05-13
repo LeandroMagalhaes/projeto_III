@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 11-Maio-2019 às 00:08
--- Versão do servidor: 10.1.37-MariaDB
--- versão do PHP: 7.2.12
+-- Generation Time: 13-Maio-2019 às 01:57
+-- Versão do servidor: 10.1.38-MariaDB
+-- versão do PHP: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -65,32 +65,9 @@ CREATE TABLE `curso` (
 --
 
 INSERT INTO `curso` (`cod_curso`, `nome_curso`, `carga_horaria`, `qtd_periodo`) VALUES
-(1, 'AdministraÃ§Ã£o', 2500, 2),
-(2, 'Direito', 3000, 4);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `curso_periodo`
---
-
-CREATE TABLE `curso_periodo` (
-  `cod_periodo` int(11) NOT NULL,
-  `num_periodo` int(11) NOT NULL,
-  `cod_curso` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `curso_periodo`
---
-
-INSERT INTO `curso_periodo` (`cod_periodo`, `num_periodo`, `cod_curso`) VALUES
-(5, 1, 2),
-(6, 2, 2),
-(7, 3, 2),
-(8, 4, 2),
-(9, 1, 1),
-(10, 2, 1);
+(1, 'AdministraÃ§Ã£o', 4000, 4),
+(2, 'Direito', 3000, 3),
+(3, 'Analise e Desenvolvimento de Sistemas', 2000, 2);
 
 -- --------------------------------------------------------
 
@@ -100,24 +77,9 @@ INSERT INTO `curso_periodo` (`cod_periodo`, `num_periodo`, `cod_curso`) VALUES
 
 CREATE TABLE `grade` (
   `cod_materia` int(11) DEFAULT NULL,
-  `cod_curso` int(11) DEFAULT NULL
+  `cod_curso` int(11) DEFAULT NULL,
+  `num_periodo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `grade`
---
-
-INSERT INTO `grade` (`cod_materia`, `cod_curso`) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(3, 2),
-(2, 2),
-(5, 2),
-(2, 3),
-(3, 3),
-(4, 3),
-(1, 3);
 
 -- --------------------------------------------------------
 
@@ -136,24 +98,35 @@ CREATE TABLE `materia` (
 --
 
 INSERT INTO `materia` (`cod_materia`, `nome_materia`, `carga_horaria`) VALUES
-(1, 'Ã‰tica', 80),
-(2, 'PortuguÃªs', 80),
-(3, 'MatemÃ¡tica', 80),
-(4, 'Banco de Dados', 80),
-(5, 'ComunicaÃ§Ã£o Empresarial', 80),
-(6, 'Fundamentos de Sistemas de InformaÃ§Ã£o', 80);
+(4, 'Direito Administrativo', 80),
+(5, 'Direito Constitucional', 80),
+(6, 'PortuguÃªs', 100);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `periodo_materia`
+-- Estrutura da tabela `periodo`
 --
 
-CREATE TABLE `periodo_materia` (
+CREATE TABLE `periodo` (
   `num_periodo` int(11) NOT NULL,
-  `cod_curso` int(11) NOT NULL,
-  `cod_materia` int(11) NOT NULL
+  `cod_curso` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `periodo`
+--
+
+INSERT INTO `periodo` (`num_periodo`, `cod_curso`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(1, 2),
+(2, 2),
+(3, 2),
+(1, 3),
+(2, 3);
 
 -- --------------------------------------------------------
 
@@ -172,8 +145,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `nome_usuario`, `senha_usuario`) VALUES
-(1, 'Leo', '111'),
-(2, 'Leo', '111');
+(1, 'Leo', '111');
 
 --
 -- Indexes for dumped tables
@@ -191,12 +163,6 @@ ALTER TABLE `aluno`
 --
 ALTER TABLE `curso`
   ADD PRIMARY KEY (`cod_curso`);
-
---
--- Indexes for table `curso_periodo`
---
-ALTER TABLE `curso_periodo`
-  ADD PRIMARY KEY (`cod_periodo`);
 
 --
 -- Indexes for table `grade`
@@ -231,35 +197,19 @@ ALTER TABLE `aluno`
 -- AUTO_INCREMENT for table `curso`
 --
 ALTER TABLE `curso`
-  MODIFY `cod_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `curso_periodo`
---
-ALTER TABLE `curso_periodo`
-  MODIFY `cod_periodo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `cod_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `materia`
 --
 ALTER TABLE `materia`
-  MODIFY `cod_materia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cod_materia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Constraints for dumped tables
---
-
---
--- Limitadores para a tabela `aluno`
---
-ALTER TABLE `aluno`
-  ADD CONSTRAINT `aluno_ibfk_2` FOREIGN KEY (`cod_curso`) REFERENCES `curso` (`cod_curso`);
+  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

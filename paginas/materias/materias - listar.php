@@ -33,17 +33,19 @@
 
     function excluirMateria(id){
         var xhttp = new XMLHttpRequest();
-        
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                alert("Registro Excluido com Sucesso!")
-                window.location.reload();
-            }
-        };
-        xhttp.open("GET", "controle/materiaControle.php?acao=excluir&cod_materia=" + id, true);
-        xhttp.send();
+        var excluir = confirm("Ao excluir uma matéria a grade relacionada também será excluida. Deseja Continuar?")
+        if(excluir == true){
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("Registro Excluido com Sucesso!")
+                    window.location.reload();
+                }
+            };
+            xhttp.open("GET", "controle/materiaControle.php?acao=excluir&cod_materia=" + id, true);
+            xhttp.send();
+        }
     }
-
+    
     function editarMateria(id){
         window.location.href = "index.php?pagina=materias&acao=editar&cod_materia=" + id;
     }

@@ -33,15 +33,18 @@
 
     function excluirCurso(id){
         var xhttp = new XMLHttpRequest();
+        var excluir = confirm("Ao excluir um Curso a grade relacionada também será excluida. Deseja Continuar?")
+        if(excluir == true){
         
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                alert("Registro Excluido com Sucesso!")
-                window.location.reload();
-            }
-        };
-        xhttp.open("GET", "controle/cursoControle.php?acao=excluir&cod_curso=" + id, true);
-        xhttp.send();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("Registro Excluido com Sucesso!")
+                    window.location.reload();
+                }
+            };
+            xhttp.open("GET", "controle/cursoControle.php?acao=excluir&cod_curso=" + id, true);
+            xhttp.send();
+        }
     }
 
     function editarCurso(id){

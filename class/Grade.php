@@ -4,6 +4,7 @@ class Grade{
     
     private $idCurso;
     private $idMateria;
+    private $NumPeriodo;
 
     public function getIdCurso(){
         return $this->idCurso;
@@ -11,6 +12,10 @@ class Grade{
 
     public function getIdMateria(){
         return $this->idMateria;
+    }
+
+    public function getNumPeriodo(){
+        return $this->NumPeriodo;
     }
 
     public function setIdCurso($idCurso){
@@ -21,9 +26,14 @@ class Grade{
         $this->idMateria = $idMateria;
     }
 
-    public function novaGrade($idCurso, $idMateria){
+    public function setNumPeriodo($periodo){
+        $this->NumPeriodo = $periodo;
+    }
+
+    public function novaGrade($idCurso, $idMateria, $NumPeriodo){
         $this->idCurso = $idCurso;
         $this->idMateria = $idMateria;
+        $this->NumPeriodo = $NumPeriodo;
     }
 }
 

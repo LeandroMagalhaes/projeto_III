@@ -10,6 +10,11 @@
                     </div>
 
                     <div class='form-group'>
+                        <label>Periodo</label>
+                        <select class='form-control' id='periodo'></select>
+                    </div>
+
+                    <div class='form-group'>
                         <label>Matérias</label>
                         <select class='form-control' id='materia'></select>
                     </div>
@@ -24,9 +29,10 @@
                         <table class='table table-striped table-sm' id='grade'>
                             <thead>
                                 <tr>
-                                    <th style='width:40%;'>Curso</th>
-                                    <th style='width:40%;'>Matéria</th>
-                                    <th style='width:20%;'>Ação</th>
+                                    <th style='width:30%;'>Curso</th>
+                                    <th style='width:30%;'>Período</th>
+                                    <th style='width:30%;'>Matéria</th>
+                                    <th style='width:10%;'>Ação</th>
                                 </tr>
                             </thead>
                             <tbody id='linhas'></tbody>
@@ -39,7 +45,8 @@
 </div>
 
 <script>
-//Carrega a função
+
+//Curso
 $(document).ready(function() {
     var xhttp = new XMLHttpRequest();
 
@@ -57,6 +64,30 @@ $(document).ready(function() {
     xhttp.send();
 });
 
+
+//Periodo
+$(document).ready(function() {
+    $("#curso").change(function(){
+        var idCurso = document.getElementById('curso').value;
+
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                resultado = JSON.parse(this.responseText);
+                formulario = "<option>Selecione</option>";
+                resultado.forEach(x => {
+                    formulario += "<option value=" + x.num_periodo + ">" + x.num_periodo + "</option>";
+                });
+                document.getElementById('periodo').innerHTML = formulario;
+            }
+        };
+        xhttp.open("GET", "controle/gradeControle.php?acao=consultar&cod_curso="+ idCurso, true);
+        xhttp.send();
+    });
+});
+
+//Materia
 $(document).ready(function() {
     var xhttp = new XMLHttpRequest();
 
@@ -75,15 +106,18 @@ $(document).ready(function() {
 });
 
 function montarLista() {
-    var idCurso = document.getElementById('curso').selectedIndex;
-    var curso = document.getElementById('curso')[idCurso].label;  
-    var idMateria = document.getElementById('materia').selectedIndex;
-    var materia = document.getElementById('materia')[idMateria].label;
+    var idxCurso = document.getElementById('curso').selectedIndex;    
+    var idCurso = document.getElementById('curso').value;
+    var curso = document.getElementById('curso')[idxCurso].label;
+    var idPeriodo = document.getElementById('periodo').selectedIndex;
+    var idxMateria = document.getElementById('materia').selectedIndex;
+    var idMateria = document.getElementById('materia').value;
+    var materia = document.getElementById('materia')[idxMateria].label;
 
     if (materia == 0 || materia == "Selecione" || curso == 0 || curso == "Selecione") {
         alert("Preencha os Campos!");
     } else {
-        var linha = "<tr><td>" + curso + "<input type='hidden' name='idCurso[]' value='" + idCurso + "'></td><td>" +
+        var linha = "<tr><td>" + curso + "<input type='hidden' name='idCurso[]' value='" + idCurso + "'></td><td>"+ idPeriodo +"<input type='hidden' name='idPeriodo[]' value='" + idPeriodo + "'></td><td>" +
         materia + "<input type='hidden' name='idMateria[]' value='" + idMateria +
             "'></td><td><button class='btn btn-sm' onclick=\"removerLinha(this.parentNode.parentNode.rowIndex)\"><i class='fa fa-trash-o' aria-hidden='true'></i></button></td></tr>";
         document.getElementById('linhas').innerHTML += linha;
@@ -96,14 +130,13 @@ function removerLinha(id) {
 
 $(document).ready(function() {
     $('#cadastrar').click(function() {
-        if (materia == 0 || materia == "Selecione" || curso == 0 || curso == "Selecione") {
-            alert("Preencha os Campos!");
+        var dados = $('#formulario').serialize();
+
+        if (dados == null || dados == undefined || dados == 0) {
+            alert("Preencha a Lista!");
             return false;
         } 
-        else {
-            var dados = $('#formulario').serialize();
-            console.log(dados);
-            //Ajax
+        else {            
             $.post('controle/gradeControle.php?acao=cadastrar', dados,
                 function(data, status) {                    
                     alert("Cadastrado com Sucesso!");

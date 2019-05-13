@@ -3,13 +3,16 @@
     require "../class/Conexao.php";
     require "../class/Usuario.php";
 
+    session_start();
+
     @$nome = $_POST['nome'];
     @$senha = $_POST['senha'];
     @$acao = $_GET['acao'];
+    @$usuarioLogado = $_SESSION['id'];
 
     if($acao == 'listar'){  
 
-        $sql = "SELECT DISTINCT cod_usuario, nome_usuario FROM usuario";
+        $sql = "SELECT DISTINCT cod_usuario, nome_usuario FROM usuario WHERE cod_usuario != '{$usuarioLogado}'";
 
         $consultar = new Conexao;
         $resultado = $consultar->getDados($sql);
