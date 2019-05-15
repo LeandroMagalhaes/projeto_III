@@ -46,7 +46,7 @@
         else{
             continue;
         }
-} 
+    } 
     
 
     function getPeriodo($cod_curso){
